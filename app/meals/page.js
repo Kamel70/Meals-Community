@@ -1,12 +1,22 @@
 import Link from "next/link"
-
-export default function Meals(){
+import MealsGrid from "@/components/meals/meals-grid"
+import { getMeals } from "@/lib/meal"
+export default async function Meals(){
+    const meals =await getMeals();
     return(
         <>
-        <h1>Meals</h1>
-        <p><Link href='/meals/share'>share</Link></p>
-        <p><Link href='/meals/meal-1'>Meal 1</Link></p>
-        <p><Link href='/meals/meal-2'>Meal 2</Link></p>
+        <header>
+            <h1>Delicious Meals Created <span>By You</span></h1>
+            <p>Choose you favorite recipe and cook it yourself. It is easy and fun</p>
+            <p>
+                <Link href='/meals/share'>
+                    Share your favorite recipe
+                </Link>
+            </p>
+        </header>
+        <main>
+            <MealsGrid meals={meals} />
+        </main>
         </>
         
     )
