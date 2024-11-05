@@ -1,6 +1,8 @@
 import ImagePicker from "@/components/images/image-picker";
+import { sendMealData } from "@/lib/action";
 
 export default function ShareMealPage() {
+  
     return (
       <>
         <header>
@@ -10,7 +12,7 @@ export default function ShareMealPage() {
           <p>Or any other meal you feel needs sharing!</p>
         </header>
         <main>
-          <form>
+          <form action={sendMealData}>
             <div>
               <p>
                 <label htmlFor="name">Your name</label>
